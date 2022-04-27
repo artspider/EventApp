@@ -21,7 +21,7 @@ class CreateItialumnsTable extends Migration
             $table->string('nombre', 50);
             $table->string('carrera', 100);
             $table->smallInteger('semestre');
-            $table->string('curp', 50);
+            $table->string('curp', 50)->nullable();
             $table->string('email', 100)->unique();
             $table->string('foto', 100)->nullable();
             $table->timestamps();

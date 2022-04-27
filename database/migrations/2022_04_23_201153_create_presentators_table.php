@@ -27,7 +27,7 @@ class CreatePresentatorsTable extends Migration
             $table->string('twitter', 50)->nullable();
             $table->string('facebook', 50)->nullable();
             $table->string('linkedin', 50)->nullable();
-            $table->string('foto', 100);
+            $table->string('foto', 100)->nullable();
             $table->timestamps();
         });
     }

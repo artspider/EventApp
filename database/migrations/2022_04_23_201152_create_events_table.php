@@ -19,11 +19,11 @@ class CreateEventsTable extends Migration
             $table->longText('descripcion');
             $table->smallInteger('presentaciones');
             $table->smallInteger('min_certificar');
-            $table->decimal('precio', 8, 2);
+            $table->decimal('precio', 8, 2)->nullable();
             $table->string('fecha_inicio', 100);
             $table->string('fecha_cierre', 100);
-            $table->integer('asistencia');
-            $table->boolean('status');
+            $table->integer('asistencia')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

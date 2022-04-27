@@ -20,8 +20,8 @@ class CreatePresentationsTable extends Migration
             $table->smallInteger('duracion');
             $table->text('fecha', 50);
             $table->text('hora', 50);
-            $table->integer('asistencia');
-            $table->smallInteger('calificacion');
+            $table->integer('asistencia')->nullable();
+            $table->smallInteger('calificacion')->nullable();
             $table->unsignedBigInteger('presentator_id');
             $table->unsignedBigInteger('event_id');
             $table->timestamps();

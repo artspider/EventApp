@@ -14,6 +14,7 @@ class CreateItialumnPresentationTable extends Migration
     public function up()
     {
         Schema::create('itialumn_presentation', function (Blueprint $table) {
+            $table->primary(['itialumn_id','presentation_id']);
             $table->foreignId('itialumn_id')->constrained()->onDelete('cascade');
             $table->foreignId('presentation_id')->constrained()->onDelete('cascade');
             $table->boolean('pre-registro')->defaultValue(false);

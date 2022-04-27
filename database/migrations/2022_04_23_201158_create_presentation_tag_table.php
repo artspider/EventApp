@@ -14,6 +14,7 @@ class CreatePresentationTagTable extends Migration
     public function up()
     {
         Schema::create('presentation_tag', function (Blueprint $table) {
+            $table->primary(['presentation_id','tag_id']);
             $table->foreignId('presentation_id')->constrained()->onDelete('cascade');
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
         });
