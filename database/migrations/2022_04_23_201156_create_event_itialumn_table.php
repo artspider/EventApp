@@ -14,7 +14,6 @@ class CreateEventItialumnTable extends Migration
     public function up()
     {
         Schema::create('event_itialumn', function (Blueprint $table) {
-            $table->id();
             $table->primary(['itialumn_id','event_id']);
             $table->foreignId('itialumn_id')->constrained()->onDelete('cascade');
             $table->foreignId('event_id')->constrained()->onDelete('cascade');
