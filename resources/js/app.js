@@ -1,6 +1,10 @@
-require('./bootstrap');
+require("./bootstrap");
 
-import Alpine from 'alpinejs';
+import datepicker from "./datepicker";
+
+import Alpine from "alpinejs";
+
+Alpine.data("datepicker", datepicker);
 
 window.Alpine = Alpine;
 

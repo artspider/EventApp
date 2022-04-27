@@ -1,0 +1,68 @@
+models:
+  Itialumn:
+    numcontrol: string:50
+    paterno: string:50
+    materno: string:50
+    nombre: string:50
+    carrera: string:100
+    semestre: smallInteger
+    curp: string:50
+    email: string:100 unique
+    foto: string:100
+    relationships:
+      belongsToMany: Presentation
+      belongsTo: Event
+
+  Event:
+    nombre: string:100
+    descripcion: longtext
+    presentaciones: smallInteger
+    min_certificar: smallInteger
+    precio: decimal:8,2
+    fecha_inicio: string:100
+    fecha_cierre: string:100
+    asistencia: integer
+    status: boolean
+    relationships:
+      hasMany: Presentation, Itialumn
+
+  Presentator:
+    nombre: string:100
+    universidad: string:50
+    carrera: string:50
+    trabajo_actual: string:50
+    especialidad: string:50
+    web: string:100 nullable
+    temas: string:100
+    telefono: string:20
+    email: string:100 unique
+    twitter: string:50 nullable
+    facebook: string:50 nullable
+    linkedin: string:50 nullable
+    foto: string:100
+    relationships:
+      hasMany: Presentation
+
+  Presentation:
+    nombre: string:100
+    descripcion: longtext
+    duracion: smallInteger
+    fecha: text:50
+    hora: text:50
+    asistencia: integer
+    calificacion: smallInteger
+    presentator_id: id
+    event_id: id
+    relationships:
+      belongsToMany: Tag,Itialumn
+
+  Tag:
+    nombre: string:50
+    descripcion: string:100
+    relationships:
+      belongsToMany: Presentation
+
+  Event_Itialumn:
+    itialumn_id: id
+    event_id: id
+    presentaciones: smallInteger

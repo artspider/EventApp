@@ -5075,12 +5075,15 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var _datepicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./datepicker */ "./resources/js/datepicker.js");
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+
+alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].data("datepicker", _datepicker__WEBPACK_IMPORTED_MODULE_0__["default"]);
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
 
 /***/ }),
 
@@ -5112,6 +5115,42 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/datepicker.js":
+/*!************************************!*\
+  !*** ./resources/js/datepicker.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  return {
+    fecha_inicio: null,
+    fecha_cierre: null,
+    appInit: function appInit() {
+      console.log("iniciando");
+    },
+    doChangeInicio: function doChangeInicio() {
+      this.fecha_inicio = this.$refs.fecha_inicio.value;
+      this.$wire.set("fecha_inicio", this.fecha_inicio, true);
+      console.log("ok");
+    },
+    doChangeCierre: function doChangeCierre() {
+      this.fecha_cierre = this.$refs.fecha_cierre.value;
+      this.$wire.set("fecha_cierre", this.fecha_cierre, true);
+    },
+    doChangeFecha: function doChangeFecha() {
+      this.fecha = this.$refs.fecha.value;
+      this.$wire.set("fecha", this.fecha, true);
+    }
+  };
+});
 
 /***/ }),
 
