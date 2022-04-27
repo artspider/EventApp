@@ -29,6 +29,7 @@ class Registrar extends Component
 
     public function mount($id) 
     {
+        $this->verificado = false;
         $this->event = Event::find($id);
     }
 
@@ -62,13 +63,16 @@ class Registrar extends Component
 
     public function registrar()
     {
-        
-        $this->validate([
+        $ruta = '';
+        /* $this->validate([
             'recibo' => 'image', // 1MB Max
-        ]);
+        ]); */
 
-        $url_foto = $this->recibo->store('recibos', 'public');        
-        $ruta = str_replace("public","storage", $url_foto);
+        if($this->recibo) {
+            $url_foto = $this->recibo->store('recibos', 'public');        
+            $ruta = str_replace("public","storage", $url_foto);
+        }
+        
 
         $alumno = Itialumn::find($this->id_alumno);
         $alumno->events()->attach($this->event->id,['presentaciones'=>0, 'recibo'=>$ruta, 'verificado'=>$this->verificado, 'espectativas'=>'algunas']);
@@ -77,7 +81,7 @@ class Registrar extends Component
         $this->search = null;
         $this->recibo = null;
         $this->id_alumno = null;
-        $this->verificado = null;
+        $this->verificado = false;
         $this->alumno_seleccionado = null;
         $this->control_seleccionado = null;
     }
