@@ -64,7 +64,7 @@ class Registrar extends Component
     {
         
         $this->validate([
-            'recibo' => 'image|max:2048', // 1MB Max
+            'recibo' => 'image', // 1MB Max
         ]);
 
         $url_foto = $this->recibo->store('recibos', 'public');        
