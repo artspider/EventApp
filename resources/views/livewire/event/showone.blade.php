@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="w-full md:w-1/3 ">
-                    <x-utils.button wire:click="clear"
+                    <x-utils.button wire:click="clear" color="sky"
                         class="h-10 md:ml-4 shadow-md w-full md:w-1/3 mb-6 md:mb-0 justify-center">Limpiar
                     </x-utils.button>
                 </div>
@@ -116,11 +116,14 @@
                 {{ $alumnos->links() }}
             </div>
             @else
-            <x-icons.not-found />
-            <x-utils.text class="text-center mb-6">¡Al parecer no hay alumnos registrados! Puedes agregar haciendo clic
-                en el
-                botón AGREGAR que esta abajo
-            </x-utils.text>
+            <div class="grid-center col-span-12">
+                <x-icons.not-found />
+                <x-utils.text class="text-center mb-6">¡Al parecer no hay alumnos registrados! Puedes agregar haciendo
+                    clic
+                    en el
+                    botón AGREGAR que esta abajo
+                </x-utils.text>
+            </div>
             <hr class=" border-gray-300 mb-6 ">
             @endif
 
