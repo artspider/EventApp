@@ -117,7 +117,7 @@
             </div>
             @else
             <div class="grid-center col-span-12">
-                <x-icons.not-found />
+                <x-icons.not-found w="32" h="32" />
                 <x-utils.text class="text-center mb-6">¡Al parecer no hay alumnos registrados! Puedes agregar haciendo
                     clic
                     en el
