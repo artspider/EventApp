@@ -43,7 +43,7 @@ class Showone extends Component
             'event' => $this->event,
             'alumnos' => $this->event->itialumns()
             ->where('numcontrol', 'LIKE', "%{$this->search}%")
-            ->paginate(5)
+            ->paginate(300)
             ])
         ->layout('components.master');
     }
